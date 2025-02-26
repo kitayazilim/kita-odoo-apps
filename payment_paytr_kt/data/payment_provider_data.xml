@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo noupdate="1">
 
-    <record id="payment_provider_paytr" model="payment.provider">
+    <record id="payment_method_paytr" model="payment.method">
         <field name="name">PayTR iFrame</field>
-        <field name="display_as">Credit Card (powered by PayTR)</field>
-        <field name="module_id" ref="base.module_payment_paytr_kt"/>
-        <!-- https://www.payulatam.com/medios-de-pago/ -->
-        <field name="payment_icon_ids"
-               eval="[(6, 0, [
-                   ref('payment.payment_icon_cc_diners_club_intl'),
-                   ref('payment.payment_icon_cc_mastercard'),
-                   ref('payment.payment_icon_cc_american_express'),
-                   ref('payment.payment_icon_cc_visa'),
-                   ref('payment.payment_icon_cc_codensa_easy_credit'),
-               ])]"/>
         <field name="code">paytr</field>
+        <field name="image" type="base64" file="payment_paytr_kt/static/description/icon.png"/>
+        <field name="sequence">1</field>
+        <field name="support_tokenization">False</field>
+        <field name="support_express_checkout">False</field>
+        <field name="support_refund">partial</field>
     </record>
 
+    <record id="payment_provider_paytr" model="payment.provider">
+        <field name="name">PayTR iFrame</field>
+        <field name="code">paytr</field>
+        <field name="payment_method_ids"
+            eval="[Command.set([ref('payment_method_paytr'),
+                ])]"
+        />
+    </record>
 </odoo>
