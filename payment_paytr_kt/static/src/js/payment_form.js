@@ -1,4 +1,3 @@
-/* global AdyenCheckout */
 odoo.define('payment_paytr_kt.payment_form', require => {
     'use strict';
 

@@ -1,4 +1,12 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# -*- coding: utf-8 -*-
+# Part of Kitayazilim. See LICENSE file for full copyright and licensing details.
+
+"""Payment Provider Model Extensions for PayTR
+
+This module extends the payment.provider model to add PayTR-specific
+functionality and fields required for integration with the PayTR
+payment gateway.
+"""
 
 import base64
 import hmac
@@ -9,23 +17,37 @@ from werkzeug import urls
 from odoo import fields, models, api
 
 class PaymentProvider(models.Model):
+    """Payment Provider Model Extension for PayTR
+
+    This class extends the payment.provider model to add PayTR-specific
+    fields and methods required for the PayTR payment gateway integration.
+    """
     _inherit = 'payment.provider'
 
     code = fields.Selection(selection_add=[('paytr', "PayTR")], ondelete={'paytr': 'set default'})
     paytr_merchant_id = fields.Char(string="Mağaza Numarası", required_if_provider='paytr')
     paytr_merchant_key = fields.Char(string="Mağaza Api Key", required_if_provider='paytr')
     paytr_merchant_salt = fields.Char(string="Mağaza Api Salt", required_if_provider='paytr')
-    paytr_license_key = fields.Char(string="Lisans Anahtarı", required_if_provider='paytr')
-
     paytr_ok_url = fields.Char(string="Başarılı URL", default='/payment/status')
     paytr_fail_url = fields.Char(string="Hata URL", default='/payment/status')
-
     paytr_timeout = fields.Char(string="Aşımı süresi", default='30', help="İşlem zaman aşımı süresi")
     paytr_no_installment = fields.Boolean(string="Tek çekim", default=True, help="Taksit görüntülenmesin")
     paytr_max_installment = fields.Char(string="En fazla taksit sayısı", default='0', help="Gösterilecek en fazlataksit sayısını belirler! 1-12 taksit")
 
     @api.model
     def _get_compatible_providers(self, *args, currency_id=None, **kwargs):
+        """Filter providers based on currency compatibility.
+
+        PayTR only supports specific currencies (TRY, EUR, USD, GBP, RUB).
+        This method filters out PayTR from the available providers when
+        the selected currency is not supported.
+
+        Args:
+            currency_id: The ID of the currency to check compatibility with
+
+        Returns:
+            recordset: Compatible payment providers
+        """
         """ Override of `payment` to unlist Bank of Georgia providers for unsupported currencies. """
         providers = super()._get_compatible_providers(*args, currency_id=currency_id, **kwargs)
 
@@ -36,6 +58,19 @@ class PaymentProvider(models.Model):
         return providers
 
     def _paytr_generate_vals(self, tx, IP):
+        """Generate the values for the PayTR API request.
+
+        This method prepares all the necessary parameters required for
+        initiating a payment request with the PayTR API, including merchant
+        details, transaction information, and security tokens.
+
+        Args:
+            tx: The payment transaction record
+            IP: The IP address of the customer
+
+        Returns:
+            dict: A dictionary containing all parameters for the PayTR API request
+        """
         # API Entegrasyon Bilgileri - Mağaza paneline giriş yaparak BİLGİ sayfasından alabilirsiniz.
         merchant_id = self.paytr_merchant_id
         merchant_key = self.paytr_merchant_key
@@ -80,7 +115,6 @@ class PaymentProvider(models.Model):
         hash_str = merchant_id + user_ip + merchant_oid + email + payment_amount + user_basket + no_installment + max_installment + currency + test_mode
         paytr_token = base64.b64encode(hmac.new(merchant_key.encode('utf-8'), (hash_str + merchant_salt).encode('utf-8'), hashlib.sha256).digest())
         payload = {
-            'key': self.paytr_license_key,
             'merchant_id': merchant_id,
             'merchant_oid': merchant_oid,
             'paytr_token': paytr_token.decode(),
