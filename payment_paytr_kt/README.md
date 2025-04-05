@@ -19,7 +19,7 @@ This module integrates PayTR payment gateway with Odoo, allowing customers to ma
 ## Installation
 1. Clone this repository to your Odoo addons directory:
    ```
-   git clone https://github.com/kitayazilim/payment_paytr_kt /path/to/odoo/addons/payment_paytr_kt
+   git clone https://github.com/kitayazilim/kita-odoo-apps /path/to/odoo/addons/payment_paytr_kt
    ```
    
 2. Update your Odoo addons list:
@@ -45,9 +45,6 @@ This module integrates PayTR payment gateway with Odoo, allowing customers to ma
 
 ## Usage
 Once configured, the PayTR payment option will appear on your website's checkout page. When customers select this payment method, they will be redirected to the PayTR iframe to complete their payment.
-
-## Technical Details
-The module uses a C library (`libpaytr.so`) for secure communication with the PayTR API. This library is automatically loaded when the module is used.
 
 ## Support
 For support, please contact Kıta Yazılım:
