@@ -1,17 +1,17 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Kitayazilim. See LICENSE file for full copyright and licensing details.
 
 {
     'name': 'Payment Provider: PayTR iFrame',
-    'version': '1.0',
+    'version': '1.2',
     'category': 'Accounting/Payment Providers',
     'sequence': 350,
-    'summary': "A Türkiye payment provider.",
+    'summary': "A PayTR payment provider.",
     "author": "Kıta Yazılım",
     "website": "https://kitayazilim.com",
     'depends': ['payment', 'account_payment', 'sale'],
     'data': [
-        'views/payment_provider_views.xml',
         'data/payment_provider_data.xml',
+        'views/payment_provider_views.xml',
     ],
     'application': False,
     'post_init_hook': 'post_init_hook',

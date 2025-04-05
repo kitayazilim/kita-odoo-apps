@@ -9,18 +9,15 @@
             <group name="provider_credentials" position='inside'>
                 <group invisible="code !=  'paytr'">
                     <field name="paytr_merchant_id" required="code == 'paytr' and state != 'disabled'"/>
-                    <field name="paytr_license_key" required="code == 'paytr' and state != 'disabled'"/>
                     <field name="paytr_merchant_key"  required="code == 'paytr' and state != 'disabled'"/>
                     <field name="paytr_merchant_salt"  required="code == 'paytr' and state != 'disabled'" />
                 </group>
             </group>
             <page name="configuration" position='inside'>
-                <group invisible="code !=  'paytr'">
-                    <field name="paytr_ok_url" required="code == 'paytr' and state != 'disabled'"/>
-                    <field name="paytr_fail_url"  required="code == 'paytr' and state != 'disabled'" />
-                    <field name="paytr_timeout"  required="code == 'paytr' and state != 'disabled'" />
+                <group invisible="code !=  'paytr'">                    
                     <field name="paytr_no_installment"  required="code == 'paytr' and state != 'disabled'" />
                     <field name="paytr_max_installment"  required="code == 'paytr' and state != 'disabled'" />
+                   <field name="paytr_timeout"  required="code == 'paytr' and state != 'disabled'" />
                 </group>
             </page>
         </field>

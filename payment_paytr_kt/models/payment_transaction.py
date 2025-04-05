@@ -1,4 +1,12 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# -*- coding: utf-8 -*-
+# Part of Kitayazilim. See LICENSE file for full copyright and licensing details.
+
+"""Payment Transaction Model Extensions for PayTR
+
+This module extends the payment.transaction model to add PayTR-specific
+functionality for handling payment transactions through the PayTR
+payment gateway.
+"""
 
 import logging
 import re
@@ -10,11 +18,29 @@ _logger = logging.getLogger(__name__)
 
 
 class PaymentTransaction(models.Model):
+    """Payment Transaction Model Extension for PayTR
+
+    This class extends the payment.transaction model to add PayTR-specific
+    methods for handling transaction references and processing payment
+    notifications from the PayTR payment gateway.
+    """
     _inherit = 'payment.transaction'
 
     @api.model
     def _compute_reference(self, provider_code, prefix=None, separator='-', **kwargs):
-        """
+        """Compute a unique reference for the transaction.
+
+        For PayTR, we need to ensure that the reference contains only alphanumeric
+        characters without any special characters or spaces, as required by the
+        PayTR API specifications.
+
+        Args:
+            provider_code: The code of the payment provider
+            prefix: Optional prefix for the reference
+            separator: The separator to use between prefix and reference
+
+        Returns:
+            str: A unique transaction reference
         """
         if provider_code != 'paytr':
             return super()._compute_reference(provider_code, prefix=prefix, **kwargs)
@@ -23,6 +49,19 @@ class PaymentTransaction(models.Model):
 
     @api.model
     def _compute_reference_prefix(self, provider_code, separator, **values):
+        """Compute the reference prefix from the transaction values.
+
+        For PayTR, we need to ensure that the reference prefix contains only
+        alphanumeric characters without any special characters or spaces.
+
+        Args:
+            provider_code: The code of the payment provider
+            separator: The separator to use between prefix and reference
+            values: The transaction values used to compute the reference prefix
+
+        Returns:
+            str: The computed reference prefix
+        """
         """ Compute the reference prefix from the transaction values.
 
         Note: This method should be called in sudo mode to give access to the documents (invoices,
@@ -43,6 +82,21 @@ class PaymentTransaction(models.Model):
         return re.sub(r'[\W]', '', prefix or '')
 
     def _get_tx_from_notification_data(self, provider_code, notification_data):
+        """Find the transaction based on PayTR notification data.
+
+        This method retrieves the transaction record corresponding to the
+        notification data received from PayTR after a payment attempt.
+
+        Args:
+            provider_code: The code of the payment provider
+            notification_data: The normalized notification data from PayTR
+
+        Returns:
+            recordset: The transaction if found
+
+        Raises:
+            ValidationError: If no transaction is found matching the reference
+        """
         """ Override of payment to find the transaction based on Buckaroo data.
 
         :param str provider_code: The code of the provider that handled the transaction
@@ -65,6 +119,17 @@ class PaymentTransaction(models.Model):
         return tx
 
     def _process_notification_data(self, notification_data):
+        """Process the transaction based on PayTR notification data.
+
+        This method updates the transaction status based on the notification
+        data received from PayTR. It handles success and failure cases.
+
+        Args:
+            notification_data: The normalized notification data from PayTR
+
+        Raises:
+            ValidationError: If inconsistent data were received
+        """
         """ Override of payment to process the transaction based on Buckaroo data.
 
         Note: self.ensure_one()
