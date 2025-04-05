@@ -1,7 +1,4 @@
 # Proje Spepecific
-.odoorc
-/bin
-/filestore
 
 *.conf
 *.sh
@@ -20,8 +17,7 @@ bin/
 build/
 develop-eggs/
 dist/
-eggs/
-lib/
+eggs/ 
 lib64/
 parts/
 sdist/
