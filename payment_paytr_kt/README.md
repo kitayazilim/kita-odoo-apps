@@ -12,7 +12,7 @@ This module integrates PayTR payment gateway with Odoo, allowing customers to ma
 - Test mode for development and testing
 
 ## Requirements
-- Odoo 17.0
+- Odoo 18.0
 - A PayTR merchant account
 - PayTR API credentials (Merchant ID, API Key, API Salt)
 
@@ -21,7 +21,7 @@ This module integrates PayTR payment gateway with Odoo, allowing customers to ma
    ```
    git clone https://github.com/kitayazilim/kita-odoo-apps /path/to/odoo/addons/payment_paytr_kt
    ```
-   
+
 2. Update your Odoo addons list:
    - Go to Apps menu
    - Click on "Update Apps List"
@@ -46,7 +46,7 @@ This module integrates PayTR payment gateway with Odoo, allowing customers to ma
 ## Usage
 Once configured, the PayTR payment option will appear on your website's checkout page. When customers select this payment method, they will be redirected to the PayTR iframe to complete their payment.
 
-## Support
+y  ## Support
 For support, please contact Kıta Yazılım:
 - Website: https://kitayazilim.com
 - Email: info@kitayazilim.com
