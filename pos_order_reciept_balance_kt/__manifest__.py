@@ -6,8 +6,8 @@
     "summary": """Adds Balance to POS Receipt""",
     "version": "1.0.0",
     "license": "LGPL-3",
-    "author": "Kıta Yazılım",
-    "website": "https://kitayazilim.com",
+    "author": "Kıta",
+    "website": "kitayazilim.com",
     "depends": ["point_of_sale", "pos_settle_due"],
     "assets": {
         "point_of_sale._assets_pos": [

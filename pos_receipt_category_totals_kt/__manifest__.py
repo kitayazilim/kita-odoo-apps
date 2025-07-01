@@ -6,8 +6,8 @@
     "summary": """Adds Category and UoM Quantities to POS Receipt""",
     "version": "1.0.0",
     "license": "LGPL-3",
-    "author": "KIta Yazılım",
-    "website": "https//kitayazilim.com",
+    "author": "Kıta",
+    "website": "kitayazilim.com",
     "depends": ["point_of_sale"],
     "assets": {
         "point_of_sale._assets_pos": [
