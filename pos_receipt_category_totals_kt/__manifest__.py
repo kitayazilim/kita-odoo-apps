@@ -4,8 +4,6 @@
 {
     "name": "POS Receipt Category and UoM Quantities",
     "summary": """Adds Category and UoM Quantities to POS Receipt""",
-    "description": """Adds product category and unit of measure quantities
-    to POS Receipt""",
     "version": "1.0.0",
     "license": "LGPL-3",
     "author": "KIta Yazılım",
