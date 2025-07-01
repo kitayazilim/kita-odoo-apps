@@ -1,57 +1,58 @@
-# POS Order Receipt Balance
+POS Order Receipt Balance
 
-> ⚠️ **Note:** This module is only compatible with the Odoo Enterprise version.
+⚠️ NOTE: This module is only compatible with the Odoo Enterprise version.
 
-![Odoo Enterprise](https://img.shields.io/badge/Odoo-Enterprise-blue?logo=odoo)
+Odoo Enterprise
 
-## English
+ENGLISH
 
-**POS Order Receipt Balance**
+POS Order Receipt Balance
 
 This Odoo module adds the customer's current balance to the POS (Point of Sale) order receipt. It is especially useful for businesses that want to show the customer's outstanding balance directly on the printed or electronic POS receipt.
 
-**Features:**
+Features:
 - Shows the customer's balance on the POS receipt
 - Seamless integration with Odoo POS
-- Works with the `pos_settle_due` module for accurate balance tracking
+- Works with the pos_settle_due module for accurate balance tracking
 
-**Requirements:**
+Requirements:
 - Odoo 16 or 17 (Enterprise)
-- `point_of_sale` module
-- `pos_settle_due` module
+- point_of_sale module
+- pos_settle_due module
 
-**Installation:**
+Installation:
 1. Copy the module to your Odoo addons directory.
-2. Update the app list and install `POS Order Receipt Balance`.
+2. Update the app list and install POS Order Receipt Balance.
 
-**Usage:**
+Usage:
 - When a POS order is completed, the receipt will display the customer's current balance.
 
 ---
 
-## Türkçe
+TÜRKÇE
 
-> ⚠️ **Not:** Bu modül yalnızca Odoo Enterprise sürümü ile uyumludur.
+⚠️ NOT: Bu modül yalnızca Odoo Enterprise sürümü ile uyumludur.
 
-![Odoo Enterprise](https://img.shields.io/badge/Odoo-Enterprise-blue?logo=odoo)
+Odoo Enterprise
 
-**POS Order Receipt Balance**
+POS Order Receipt Balance
 
 Bu Odoo modülü, müşterinin mevcut bakiyesini POS (Satış Noktası) fişine ekler. Özellikle müşterinin kalan borcunun doğrudan POS fişinde gösterilmesini isteyen işletmeler için faydalıdır.
 
-**Özellikler:**
+Özellikler:
 - Müşteri bakiyesini POS fişinde gösterir
 - Odoo POS ile tam uyumlu çalışır
-- Doğru bakiye takibi için `pos_settle_due` modülü ile entegre çalışır
+- Doğru bakiye takibi için pos_settle_due modülü ile entegre çalışır
 
-**Gereksinimler:**
+Gereksinimler:
 - Odoo 16 veya 17 (Enterprise)
-- `point_of_sale` modülü
-- `pos_settle_due` modülü
+- point_of_sale modülü
+- pos_settle_due modülü
 
-**Kurulum:**
+Kurulum:
 1. Modülü Odoo eklenti dizininize kopyalayın.
-2. Uygulama listesini güncelleyip `POS Order Receipt Balance` modülünü yükleyin.
+2. Uygulama listesini güncelleyip POS Order Receipt Balance modülünü yükleyin.
 
-**Kullanım:**
+Kullanım:
 - POS siparişi tamamlandığında, fişte müşterinin güncel bakiyesi görüntülenir.
+
