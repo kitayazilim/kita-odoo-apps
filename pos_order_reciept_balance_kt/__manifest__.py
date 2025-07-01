@@ -4,7 +4,6 @@
 {
     "name": "POS Order Receipt Balance",
     "summary": """Adds Balance to POS Receipt""",
-    "description": """Adds Customer Balance to POS Receipt""",
     "version": "1.0.0",
     "license": "LGPL-3",
     "author": "Kıta Yazılım",
