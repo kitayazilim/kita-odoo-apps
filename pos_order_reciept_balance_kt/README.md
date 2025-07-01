@@ -3,7 +3,6 @@ POS Order Receipt Balance
 
 ⚠️ NOTE: This module is only compatible with the Odoo Enterprise version.
 
-Odoo Enterprise
 
 ENGLISH
 ----------
@@ -21,7 +20,7 @@ Features:
 
 Requirements:
 ----------
-- Odoo 16 or 17 (Enterprise)
+- Odoo 17, 18 (Enterprise)
 - point_of_sale module
 - pos_settle_due module
 
@@ -34,17 +33,14 @@ Usage:
 ----------
 - When a POS order is completed, the receipt will display the customer's current balance.
 
----
+
+------------------------------
+
 
 TÜRKÇE
 ----------
 
 ⚠️ NOT: Bu modül yalnızca Odoo Enterprise sürümü ile uyumludur.
-
-Odoo Enterprise
-
-POS Order Receipt Balance
-==================================
 
 Bu Odoo modülü, müşterinin mevcut bakiyesini POS (Satış Noktası) fişine ekler. Özellikle müşterinin kalan borcunun doğrudan POS fişinde gösterilmesini isteyen işletmeler için faydalıdır.
 
@@ -56,7 +52,7 @@ Bu Odoo modülü, müşterinin mevcut bakiyesini POS (Satış Noktası) fişine 
 
 Gereksinimler:
 ----------
-- Odoo 16 veya 17 (Enterprise)
+- Odoo 17 veya 18 (Enterprise)
 - point_of_sale modülü
 - pos_settle_due modülü
 
