@@ -16,7 +16,7 @@ Features:
 
 Requirements:
 -------------
-- Odoo 17 or 18
+- Odoo 16, 17, 18
 - point_of_sale module
 
 Installation:
@@ -47,7 +47,7 @@ Bu Odoo modülü, ürün kategorisini ve birim bazında (UoM) miktarları POS (S
 
 Gereksinimler:
 --------------
-- Odoo 17 veya 18
+- Odoo 16, 17, 18
 - point_of_sale modülü
 
 Kurulum:
