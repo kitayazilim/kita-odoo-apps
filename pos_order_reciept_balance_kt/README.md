@@ -20,6 +20,7 @@ Features:
 
 Requirements:
 ----------
+- Odoo 16 (Community)
 - Odoo 17, 18 (Enterprise)
 - point_of_sale module
 - pos_settle_due module
@@ -52,7 +53,8 @@ Bu Odoo modülü, müşterinin mevcut bakiyesini POS (Satış Noktası) fişine 
 
 Gereksinimler:
 ----------
-- Odoo 17 veya 18 (Enterprise)
+- Odoo 16 (Community)
+- Odoo 17, 18 (Enterprise)
 - point_of_sale modülü
 - pos_settle_due modülü
 
