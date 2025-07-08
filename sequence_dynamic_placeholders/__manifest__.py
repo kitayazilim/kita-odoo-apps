@@ -3,6 +3,15 @@
     'name': 'Sequence Dynamic Placeholders',
     'version': '16.0.1.0.0',
     'summary': 'Replace placeholders in sequences with dynamic values',
+    'description': """
+        This module allows configuring dynamic placeholders in sequences.
+        You can define placeholders for month and year that will be replaced
+        with custom characters or values based on mapping configurations.
+
+        Features:
+        - Month and year placeholders
+        - Optional per sequence
+    """,
     'category': 'Technical',
     'author': 'Kıta',
     'website': 'kitayazilim.com',
